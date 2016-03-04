@@ -5,9 +5,9 @@ defmodule Rumbl.Repo do
   In-memory repositor
   """
   def all(Rumbl.User) do
-    [%Rumbl.User{id: 1, name: "Troy Denkinger", username: "troy", password: "testtest"},
-     %Rumbl.User{id: 2, name: "Thumbs T. Cat",  username: "thumbs", password: "testtest"},
-     %Rumbl.User{id: 3, name: "Stache T. Cat",  username: "stache", password: "testtest"}]
+    [%Rumbl.User{id: "1", name: "Troy Denkinger", username: "troy", password: "testtest"},
+     %Rumbl.User{id: "2", name: "Thumbs T. Cat",  username: "thumbs", password: "testtest"},
+     %Rumbl.User{id: "3", name: "Stache T. Cat",  username: "stache", password: "testtest"}]
   end
 
   def all(_), do: []
