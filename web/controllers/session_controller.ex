@@ -9,12 +9,18 @@ defmodule Rumbl.SessionController do
     case Rumbl.Auth.login_by_user_and_pass(conn, user, pass, repo: Repo) do
       {:ok, conn} ->
         conn
-        |> put_flash(:info, "Welcome back!")
+        |> put_flash(:info, "Welcome back, #{user}!")
         |> redirect(to: page_path(conn, :index))
       {:error, _reason, conn} ->
         conn
         |> put_flash(:error, "Invalid user.")
         |> render("new.html")
     end
+  end
+
+  def delete(conn, _) do
+    conn
+    |> Rumbl.Auth.logout()
+    |> redirect(to: page_path(conn, :index))
   end
 end
