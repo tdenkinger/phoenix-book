@@ -38,6 +38,7 @@ defmodule Rumbl.UserTest do
 
     assert changeset.valid?
     assert pass_hash
+    refute pass == pass_hash
     assert Comeonin.Bcrypt.checkpw(pass, pass_hash)
   end
 end
